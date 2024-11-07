@@ -9,7 +9,9 @@ export VISUAL=nvim
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FIND_NO_DUPS
 
-# eval "$(starship init zsh)"
+if command -v starship &> /dev/null; then 
+  eval "$(starship init zsh)"
+fi
 export PATH=".config/emacs/bin:$PATH"
 
 
@@ -40,3 +42,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# opam configuration
+test -r '/Users/tean/.opam/opam-init/init.sh' && . '/Users/tean/.opam/opam-init/init.sh' > /dev/null 2> /dev/null || true
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.3.5
