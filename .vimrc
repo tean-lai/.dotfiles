@@ -11,6 +11,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'folke/tokyonight.nvim'
 Plug 'zenbones-theme/zenbones.nvim'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 set history=500
@@ -34,6 +35,10 @@ map <leader>y "+y
 map <leader>yy "+yy
 map <leader>p "+p
 map <leader>f :Goyo \| set linebreak<CR>
+nnoremap <Space>t :NERDTreeToggle<CR>
+nnoremap <Space>h :NERDTreeFocus<CR>
+nnoremap <Space>l :NERDTreeClose<CR>
+"nnoremap <Space>t :NERDTreeFind<CR> " find current tree
 
 syntax enable
 try
@@ -41,6 +46,13 @@ try
    "colorscheme rosebones
 catch
 endtry
+
+if executable('opam')
+  let g:opamshare=substitute(system('opam var share'),'\n$','','''')
+  if isdirectory(g:opamshare."/merlin/vim")
+    execute "set rtp+=" . g:opamshare."/merlin/vim"
+  endif
+endif
 
 " set background=dark
 
@@ -80,26 +92,15 @@ set tm=500
 " add a bit of extra margin to left
 " set foldcolumn=1
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git etc. anyway...
-set nobackup
-set nowb
-set noswapfile
+set nobackup nowb noswapfile
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use spaces instead of tabs
 set expandtab smarttab shiftwidth=2 tabstop=2
 
 
 " Linebreak on 500 characters
 set lbr
-set tw=500
+" set tw=500
 
 set ai "Auto indent
 set si "Smart indent
@@ -128,7 +129,7 @@ fun! CleanExtraSpaces()
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee,*.vimrc :call CleanExtraSpaces()
+    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee,*.vimrc,*.md,*.csv :call CleanExtraSpaces()
 endif
 
 map <leader><CR> :call File_cmd()<cr>
