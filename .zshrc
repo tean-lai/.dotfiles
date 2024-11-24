@@ -47,3 +47,6 @@ test -r '/Users/tean/.opam/opam-init/init.sh' && . '/Users/tean/.opam/opam-init/
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.3.5
+
+export OCAMLRUNPARAM=b
+
