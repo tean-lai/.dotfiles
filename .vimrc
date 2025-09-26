@@ -67,39 +67,39 @@ endif
 set clipboard=unnamedplus
 
 " ========== LSP Configuration ===========
-if executable('pylsp')
-  " pip install python-lsp-server
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'pylsp',
-    \ 'cmd': {server_info->['pylsp']},
-    \ 'allowlist': ['python'],
-    \ })
-endif
-
-if executable('ocamllsp')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'ocamllsp',
-    \ 'cmd': {server_info->['ocamllsp']},
-    \ 'allowlist': ['ocaml'],
-    \ })
-endif
-
-function! s:on_lsp_buffer_enabled() abort
-  setlocal omnifunc=lsp#complete
-  nmap <buffer> gd <plug>(lsp-definition)
-  nmap <buffer> gr <plug>(lsp-references)
-  nmap <buffer> gi <plug>(lsp-implementation)
-  nmap <buffer> gt <plug>(lsp-type-definition)
-  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
-  nmap <buffer> K <plug>(lsp-hover)
-endfunction
-
-augroup lsp_install
-  au!
-  " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
+" if executable('pylsp')
+"   " pip install python-lsp-server
+"   au User lsp_setup call lsp#register_server({
+"     \ 'name': 'pylsp',
+"     \ 'cmd': {server_info->['pylsp']},
+"     \ 'allowlist': ['python'],
+"     \ })
+" endif
+" 
+" if executable('ocamllsp')
+"   au User lsp_setup call lsp#register_server({
+"     \ 'name': 'ocamllsp',
+"     \ 'cmd': {server_info->['ocamllsp']},
+"     \ 'allowlist': ['ocaml'],
+"     \ })
+" endif
+" 
+" function! s:on_lsp_buffer_enabled() abort
+"   setlocal omnifunc=lsp#complete
+"   nmap <buffer> gd <plug>(lsp-definition)
+"   nmap <buffer> gr <plug>(lsp-references)
+"   nmap <buffer> gi <plug>(lsp-implementation)
+"   nmap <buffer> gt <plug>(lsp-type-definition)
+"   nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+"   nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+"   nmap <buffer> K <plug>(lsp-hover)
+" endfunction
+" 
+" augroup lsp_install
+"   au!
+"   " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+"   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+" augroup END
 
 
 
