@@ -1,9 +1,13 @@
 let mapleader = " "
 
-" if empty(glob(data_dir . '/autoload/plug.vim'))
-"   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-" TODO: finish plug-in things?
-" not sure if i want to use plug-ins in my final setup. we will see. i do want to keep things simple overall.
+let data_dir = "~/.vim"
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
+
+call plug#end()
 
 set history=500
 
@@ -57,4 +61,29 @@ if has("termguicolors")
   let &t_EI = "\e[2 q"   " Normal mode: block cursor
 endif
 
-  
+set clipboard=unnamedplus
+
+" LSP Configuration
+if executable('pylsp')
+  " pip install python-lsp-server
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'pylsp',
+    \ 'cmd': {server_info->['pylsp']},
+    \ 'allowlist': ['python'],
+    \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> K <plug>(lsp-hover)
+endfunction
+
+augroup lsp_install
+  au!
+  " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+
