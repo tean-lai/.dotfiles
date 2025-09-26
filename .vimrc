@@ -9,7 +9,6 @@ endif
 
 call plug#begin()
   Plug 'prabirshrestha/vim-lsp'
-  Plug 'mattn/vim-lsp-settings'
 call plug#end()
 " ========== PLUGINS END ===========
 
@@ -67,13 +66,21 @@ endif
 
 set clipboard=unnamedplus
 
-" LSP Configuration
+" ========== LSP Configuration ===========
 if executable('pylsp')
   " pip install python-lsp-server
   au User lsp_setup call lsp#register_server({
     \ 'name': 'pylsp',
     \ 'cmd': {server_info->['pylsp']},
     \ 'allowlist': ['python'],
+    \ })
+endif
+
+if executable('ocamllsp')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'ocamllsp',
+    \ 'cmd': {server_info->['ocamllsp']},
+    \ 'allowlist': ['ocaml'],
     \ })
 endif
 
@@ -89,5 +96,7 @@ augroup lsp_install
   " call s:on_lsp_buffer_enabled only for languages that has the server registered.
   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
+
+
 
 
