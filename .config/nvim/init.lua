@@ -1,3 +1,3 @@
 vim.g.mapleader = " "
-require("lua/set")
-require("lua/remap")
+require("set")
+require("remap")
