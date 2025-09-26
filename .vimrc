@@ -51,6 +51,10 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 set laststatus=2
 
-
+" Change cursor shape depending on mode
+if has("termguicolors")
+  let &t_SI = "\e[6 q"   " Insert mode: vertical bar
+  let &t_EI = "\e[2 q"   " Normal mode: block cursor
+endif
 
   
