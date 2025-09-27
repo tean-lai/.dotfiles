@@ -26,6 +26,6 @@ alias c=cat
 alias rv='docker run -i --rm -v "$PWD":/root ghcr.io/shouxulin/cs4414hw1'
 
 . "$HOME/.local/bin/env"
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 
 
