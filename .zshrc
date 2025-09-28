@@ -26,3 +26,4 @@ alias c=cat
 alias rv='docker run -i --rm -v "$PWD":/root ghcr.io/shouxulin/cs4414hw1'
 
 . "$HOME/.local/bin/env"
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
