@@ -97,6 +97,12 @@
   #   };
   # };
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.comic-shanns-mono
+    nerd-fonts.roboto-mono
+  ];
+
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
