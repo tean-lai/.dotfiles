@@ -79,6 +79,12 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   programs.niri.enable = true;
 
+  services.greetd.enable = true;
+  services.greetd.settings.default_session = {
+    command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd ${pkgs.niri}/bin/niri-session";
+    user = "greeter";
+  };
+
   # services.xserver = {
   #   enable = true;
   #   videoDrivers = [ "nvidia" ];
