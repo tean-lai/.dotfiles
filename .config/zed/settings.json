@@ -33,11 +33,11 @@
       "tab_size": 2
     },
     "C": {
-      "format_on_save": "on",
+      "format_on_save": "off",
       "tab_size": 2
     },
     "C++": {
-      "format_on_save": "on",
+      "format_on_save": "off",
       "tab_size": 2
     },
     "SystemVerilog": {
@@ -49,14 +49,14 @@
   "lsp": {
     "clangd": {
       "binary": {
-        "path": "/opt/homebrew/opt/llvm/bin/clangd"
+        // "path": "/opt/homebrew/opt/llvm/bin/clangd"  // this matters because in cs6120, there is a slight discrepancy between the one in homebrew and default installed. but maybe should make homebrew packages prio instead?
         // "arguments": ["-std=c++17", "-Wall", "-Wno-missing-prototypes"]
       }
     },
     "pyright": {
       "settings": {
         "python": {
-          "pythonPath": "/opt/miniconda3/envs/cs4789/bin/python3"
+          // "pythonPath": "/opt/miniconda3/envs/cs4789/bin/python3"
         }
       }
     }
