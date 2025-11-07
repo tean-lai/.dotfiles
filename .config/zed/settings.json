@@ -1,0 +1,70 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "ssh_connections": [
+    {
+      "host": "c2s2-dev2.ece.cornell.edu",
+      "username": "tml95",
+      "projects": [
+        {
+          "paths": ["~/c2s2/core"]
+        }
+      ]
+    }
+  ],
+  "ui_font_size": 16,
+  // "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "ComicShannsMono Nerd Font",
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Macchiato - No Italics"
+  },
+
+  "languages": {
+    "OCaml": {
+      "tab_size": 2
+    },
+    "C": {
+      "format_on_save": "on",
+      "tab_size": 2
+    },
+    "C++": {
+      "format_on_save": "on",
+      "tab_size": 2
+    },
+    "SystemVerilog": {
+      "language_servers": ["verible"],
+      "tab_size": 2
+    }
+  },
+
+  "lsp": {
+    "clangd": {
+      "binary": {
+        "path": "/opt/homebrew/opt/llvm/bin/clangd"
+        // "arguments": ["-std=c++17", "-Wall", "-Wno-missing-prototypes"]
+      }
+    },
+    "pyright": {
+      "settings": {
+        "python": {
+          "pythonPath": "/opt/miniconda3/envs/cs4789/bin/python3"
+        }
+      }
+    }
+    // "jdtls": {
+    //   "initialization_options": {}
+    // }
+  },
+
+  "vim_mode": true,
+  "relative_line_numbers": true
+}
