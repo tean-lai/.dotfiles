@@ -38,13 +38,13 @@
 
     git = {
       enable = true;
-      userName = "Tean Lai";
-      userEmail = "laitean19@gmail.com";
-      aliases = {
-        pu = "push";
-        co = "checkout";
-        cm = "commit";
-      };
+      settings.user.name = "Tean Lai";
+      settings.user.email = "laitean19@gmail.com";
+      # aliases = {
+      #   pu = "push";
+      #   co = "checkout";
+      #   cm = "commit";
+      # };
     };
 
     helix = {

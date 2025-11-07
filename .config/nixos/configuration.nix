@@ -76,17 +76,20 @@
   programs.steam.enable = true;
   programs.zsh.enable = true;
 
-  services.xserver = {
-    enable = true;
-    videoDrivers = [ "nvidia" ];
-    desktopManager = {
-      xterm.enable = true;
-    };
-    displayManager.lightdm.enable = true;
-    windowManager.i3 = {
-      enable = true;
-    };
-  };
+  services.xserver.videoDrivers = [ "nvidia" ];
+  programs.niri.enable = true;
+
+  # services.xserver = {
+  #   enable = true;
+  #   videoDrivers = [ "nvidia" ];
+  #   desktopManager = {
+  #     xterm.enable = true;
+  #   };
+  #   displayManager.lightdm.enable = true;
+  #   windowManager.i3 = {
+  #     enable = true;
+  #   };
+  # };
 
   hardware.nvidia = {
     modesetting.enable = true;

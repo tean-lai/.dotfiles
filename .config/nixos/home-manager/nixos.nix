@@ -9,11 +9,17 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
+    # wayland stuff
+    niri
     # river rofi-wayland swaybg libnotify wlr-randr waybar #  mako # wayland
-    waybar hyprpaper libnotify dunst rofi egl-wayland mangohud wl-clipboard
+    # fuzzel swaylock waybar hyprpaper libnotify dunst rofi egl-wayland mangohud wl-clipboard
+    fuzzel swaylock
+    
+    # x11 stuff
     dunst libnotify feh dmenu polybar xclip
+
     # foot
-    zed
+    zed-editor
     brave nyxt
     obsidian discord
     pavucontrol
