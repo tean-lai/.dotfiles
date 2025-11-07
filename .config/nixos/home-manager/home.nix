@@ -29,6 +29,7 @@
     lf
   ];
 
+
   programs = {
     # alacritty git gpg helix zsh
 

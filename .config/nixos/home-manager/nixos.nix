@@ -10,17 +10,22 @@
 
   home.packages = with pkgs; [
     # wayland stuff
-    niri
+    niri          # waland      compositor
     # river rofi-wayland swaybg libnotify wlr-randr waybar #  mako # wayland
-    # fuzzel swaylock waybar hyprpaper libnotify dunst rofi egl-wayland mangohud wl-clipboard
-    fuzzel swaylock
+    # hyprpaper libnotify dunst rofi egl-wayland mangohud wl-clipboard
+    fuzzel        # wayland     app launcher
+    swaylock      # wayland     screen locker
+    wl-clipboard  # wayland     clipboard
+    waybar        # wayland     info bar
+    dunst         # x11/wayland notifications daemon
+    # mako          # wayland notifications daemon?
     
     # x11 stuff
-    dunst libnotify feh dmenu polybar xclip
+    libnotify feh dmenu polybar xclip
 
     # foot
-    zed-editor
-    brave nyxt
+    zed-editor    # gui ide
+    brave nyxt    # browsers
     obsidian discord
     pavucontrol
     blueberry bluetuith
@@ -28,7 +33,21 @@
     pinentry-curses 
     vlc
     osu-lazer
+    kdePackages.dolphin       # gui file manager
   ];
+
+  # xdg.portal = {
+  #   enable = true;
+  #   # backends that provide the file picker
+  #   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  #   # apparently this steers the chooser to GTK
+  #   config = {
+  #     common = {
+  #       default = [ "*" ];
+  #       "org.freedesktop.impl.portal.FileChooser" = "gtk";
+  #     };
+  #   };
+  # };
 
   programs = {
     lf.enable = true;
