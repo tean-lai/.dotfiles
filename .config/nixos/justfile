@@ -1,9 +1,8 @@
+os := if os() == "macos" { "macos" } else { "nixos" }
 
-config-nix:
+config:
   sudo nixos-rebuild switch -I nixos-config=configuration.nix
 
-home-nix:
-  home-manager switch --flake home-manager/#nixos
+home:
+  home-manager switch --flake home-manager/#{{ os }} 
 
-home-mac:
-  home-manager switch --flake home-manager/#macos
