@@ -30,6 +30,9 @@
     nil  # nix lsp i believe
     calcurse
     lf
+
+    nerd-fonts.comic-shanns-mono
+
   ];
 
 
