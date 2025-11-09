@@ -35,6 +35,8 @@
     vlc
     osu-lazer
     kdePackages.dolphin       # gui file manager
+    gopass  # password manager
+    just  # just a command runner
 
     nixd
 

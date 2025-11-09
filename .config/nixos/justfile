@@ -1,0 +1,9 @@
+
+config:
+  sudo nixos-rebuild switch -I nixos-config=configuration.nix
+
+home-nix:
+  home-manager switch --flake home/manager#nixos
+
+home-mac:
+  home-manager switch --flake home/manager#macos
