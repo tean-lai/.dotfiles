@@ -9,23 +9,20 @@
 
   home.packages = with pkgs; [
     # python312
-    # python312Packages.conda
-    # python312Packages.matplotlib
-    # python312Packages.numpy
-    nodejs_22
-    vscode
-    emacs ripgrep coreutils fd git clang
-    neovim
-    ueberzug
-    imagemagick # (for .svg previews)
-    ffmpeg # (for video file thumbnails)
+    # nodejs_22
+    # vscode
+    # emacs ripgrep coreutils fd git clang
+    # neovim
+    # ueberzug  # ????
+    # imagemagick # (for .svg previews)
+    # ffmpeg      # (for video file thumbnails)
     # gs # (for pdf previews)
-    dvtm abduco
-    yazi
-    go gopls
-    spotifyd
+    # dvtm abduco
+    # yazi
+    # go # gopl <-- idk what gopl is
+    # spotifyd
     # ocaml opam
-    zathura
+    # zathura
   ];
 home.file = { };
 

@@ -9,23 +9,25 @@
 
   home.packages = with pkgs; [
     tmux
-    kitty
+    # kitty
     yt-dlp # mpv (requires swift for whatever reason)
     fzf
     unzip
-    pass
+    pass browserpass
     # uutils-coreutils-noprefix  # rust core utils 
-    newsboat
+    newsboat  # rss feed
     # texliveFull 
-    spotify-player
+    # spotify-player
     syncthing
-    mplayer
-    ncmpcpp mpd
+    # mplayer
+    # ncmpcpp mpd
+    just  # just run commands
     # (nerdfonts.override {
     #   fonts = [ "JetBrainsMono" "Hermit" "FiraCode" "ComicShannsMono" "Mononoki" ];
     # })
-    starship
-    taplo pylint python312Packages.python-lsp-server marksman nil #lsp
+    starship  # shell prompt
+    taplo pylint python312Packages.python-lsp-server marksman #lsp
+    nil  # nix lsp i believe
     calcurse
     lf
   ];
