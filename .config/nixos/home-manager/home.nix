@@ -32,6 +32,8 @@
     lf
 
     nerd-fonts.comic-shanns-mono
+    
+    pinentry-gtk2  # gui pinentry
 
   ];
 
