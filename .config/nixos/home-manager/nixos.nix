@@ -26,14 +26,19 @@
     # foot
     zed-editor    # gui ide
     brave nyxt    # browsers
-    obsidian discord
-    pavucontrol
+    lxappearance  # gtk theming
+    obsidian discord spotify
+    pavucontrol   # audio control
     blueberry bluetuith
     font-manager
     pinentry-curses 
     vlc
     osu-lazer
     kdePackages.dolphin       # gui file manager
+
+    nixd
+
+    iverilog verilator verible gtkwave
   ];
 
   # xdg.portal = {
@@ -61,11 +66,12 @@
   };
 
 
-  # gtk = {
-  #   enable = true;
-  #   theme.name = "adw-gtk3";
-  #   cursorTheme.name = "Bibata-Modern-Ice";
-  #   iconTheme.name = "GruvboxPlus";
-  # };
+  gtk = {
+    enable = true;
+    # theme.name = "adw-gtk3";
+    theme.name = "Adwaita-Dark";
+    cursorTheme.name = "Bibata-Modern-Ice";
+    # iconTheme.name = "GruvboxPlus";
+  };
 
 }

@@ -71,12 +71,16 @@
     home-manager
     tmux
     pinentry-curses
+    xwayland-satellite
   ];
   
   programs.steam.enable = true;
   programs.zsh.enable = true;
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver = {
+    videoDrivers = [ "nvidia" ];
+  };
+
   programs.niri.enable = true;
 
   services.greetd.enable = true;

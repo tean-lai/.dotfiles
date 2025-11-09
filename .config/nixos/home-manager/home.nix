@@ -12,6 +12,7 @@
     kitty
     yt-dlp # mpv (requires swift for whatever reason)
     fzf
+    unzip
     pass
     # uutils-coreutils-noprefix  # rust core utils 
     newsboat
