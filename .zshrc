@@ -29,4 +29,4 @@ alias c=cat
 # export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 # export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 
-
+eval "$($HOME/homebrew/bin/brew shellenv)"
