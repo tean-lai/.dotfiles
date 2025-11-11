@@ -65,22 +65,30 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     git
     home-manager
     tmux
     pinentry-curses
     xwayland-satellite
+    openconnect
   ];
   
   programs.steam.enable = true;
   programs.zsh.enable = true;
   programs.fish.enable = true;
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # add missing dynamic libraries for unpackaged programs
+    # not included in environment.systemPackages
+  ];
 
   services.xserver = {
     videoDrivers = [ "nvidia" ];
   };
+
+  services.dbus.enable = true;  # for webkit?
 
   programs.niri.enable = true;
 
