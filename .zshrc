@@ -16,7 +16,7 @@ test -r "$HOME/.opam/opam-init/init.sh" && . "$HOME/.opam/opam-init/init.sh" > /
 
 export OCAMLRUNPARAM=b
 
-. "$HOME/.local/bin/env"
+# . "$HOME/.local/bin/env"
 alias p=python3
 alias pp=pypy3
 alias v=vim
