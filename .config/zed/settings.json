@@ -11,9 +11,29 @@
     {
       "host": "c2s2-dev2.ece.cornell.edu",
       "username": "tml95",
+      "args": [],
       "projects": [
         {
-          "paths": ["~/c2s2/core"]
+          "paths": [
+            "~/c2s2/core"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "ecelinux.ece.cornell.edu",
+      "username": "tml95",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/tml95/ece6775/./"
+          ]
+        },
+        {
+          "paths": [
+            "/home/tml95/ece6775/market-feed-handler-on-fpga/./"
+          ]
         }
       ]
     }
