@@ -25,7 +25,7 @@ alias c=cat
 # TODO: remove this after being done with CS 4414
 # alias rv='docker run -i --rm -v "$PWD":/root ghcr.io/shouxulin/cs4414hw1'
 
-. "$HOME/.local/bin/env"
+# . "$HOME/.local/bin/env"
 # export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 # export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 
