@@ -7,6 +7,13 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "title_bar": {
+    "show_sign_in": false
+  },
+  "show_edit_predictions": true,
+  "inlay_hints": {
+    "enabled": true
+  },
   "ssh_connections": [
     {
       "host": "c2s2-dev2.ece.cornell.edu",
@@ -44,8 +51,8 @@
   "buffer_font_size": 15,
   "theme": {
     "mode": "system",
-    "light": "Gruvbox Dark",
-    "dark": "Catppuccin Macchiato - No Italics"
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Dark"
   },
 
   "languages": {

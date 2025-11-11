@@ -8,32 +8,31 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
-    tmux
+    # GUIDELINES FOR MYSELF
+    # PRIMARILY CLI THINGS
+    # For GUI, homebrew works better for Mac!
+    # tmux
     # kitty
-    yt-dlp # mpv (requires swift for whatever reason)
-    fzf
-    unzip
-    pass browserpass
+    # yt-dlp # mpv (requires swift for whatever reason)
+    # fzf
+    # unzip
+    # pass browserpass
     # uutils-coreutils-noprefix  # rust core utils 
-    newsboat  # rss feed
+    # newsboat  # rss feed
     # texliveFull 
     # spotify-player
-    syncthing
+    # syncthing
     # mplayer
     # ncmpcpp mpd
-    just  # just run commands
-    # (nerdfonts.override {
-    #   fonts = [ "JetBrainsMono" "Hermit" "FiraCode" "ComicShannsMono" "Mononoki" ];
-    # })
-    starship  # shell prompt
-    taplo pylint python312Packages.python-lsp-server marksman #lsp
-    nil  # nix lsp i believe
-    calcurse
-    lf
+    # just  # just run commands
+    # taplo pylint python312Packages.python-lsp-server marksman #lsp
+    # nil  # nix lsp i believe
+    # calcurse
+    # lf
 
-    nerd-fonts.comic-shanns-mono
+    # nerd-fonts.comic-shanns-mono
     
-    pinentry-gtk2  # gui pinentry
+    # pinentry-gtk2  # gui pinentry
 
   ];
 
@@ -41,24 +40,31 @@
   programs = {
     # alacritty git gpg helix zsh
 
-    alacritty = {
-      enable = true;
-    };
+    # alacritty = {
+    #   enable = true;
+    # };
 
-    git = {
-      enable = true;
-      settings.user.name = "Tean Lai";
-      settings.user.email = "laitean19@gmail.com";
-      # aliases = {
-      #   pu = "push";
-      #   co = "checkout";
-      #   cm = "commit";
-      # };
-    };
+    # git = {
+    #   enable = true;
+    #   settings.user.name = "Tean Lai";
+    #   settings.user.email = "laitean19@gmail.com";
+    #   # aliases = {
+    #   #   pu = "push";
+    #   #   co = "checkout";
+    #   #   cm = "commit";
+    #   # };
+    # };
 
-    helix = {
-      enable = true;
-    };
+    # helix = {
+    #   enable = true;
+    # };
+
+    # fish = {
+    #   enable = true;
+    #   plugins = [
+    #     { name = "grc"; src = pkgs.fishPlugins.grc.src; }  # colorized cmd output
+    #   ];
+    # };
 
   };
 
