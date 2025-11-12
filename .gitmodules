@@ -1,3 +1,6 @@
 [submodule ".config/alacritty"]
 	path = .config/alacritty
 	url = git@github.com:tean-lai/alacritty.git
+[submodule ".config/kak/bundle/kak-bundle"]
+	path = .config/kak/bundle/kak-bundle
+	url = https://codeberg.org/jdugan6240/kak-bundle

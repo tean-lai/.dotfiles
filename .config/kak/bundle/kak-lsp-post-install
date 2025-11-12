@@ -1,0 +1,3 @@
+
+  # Any shell code that needs to be run goes here...
+  cargo install --locked --force --path .
