@@ -19,19 +19,20 @@
     waybar        # wayland     info bar
     dunst         # x11/wayland notifications daemon
     # mako          # wayland notifications daemon?
-    
+
     # x11 stuff
     libnotify feh dmenu polybar xclip
 
     # foot
+    kakoune
     zed-editor    # gui ide
-    brave nyxt    # browsers
+    brave nyxt firefox   # browsers
     lxappearance  # gtk theming
     obsidian discord spotify
     pavucontrol   # audio control
     blueberry bluetuith
     font-manager
-    pinentry-curses 
+    pinentry-curses
     vlc
     osu-lazer
     kdePackages.dolphin       # gui file manager
@@ -42,6 +43,24 @@
     nixd
 
     iverilog verilator verible gtkwave
+
+    tmux yt-dlp fzf unzip
+    htop
+
+    pass browserpass
+    newsboat
+    syncthing
+    mplayer ncmpcpp mpd
+    just
+    lf
+    nerd-fonts.comic-shanns-mono
+
+    ollama cargo libgcc
+    opam
+
+    snore
+
+    sshfs
   ];
 
   # xdg.portal = {
@@ -58,8 +77,22 @@
   # };
 
   programs = {
+    alacritty.enable = true;
     lf.enable = true;
     pywal.enable = true;
+    git = {
+      enable = true;
+      settings.user.name = "Tean Lai";
+      settings.user.email = "laitean19@gmail.com";
+    };
+    fish = {
+      enable = true;
+      plugins = [
+        { name = "grc"; src = pkgs.fishPlugins.grc.src; }  # colorize cmd output
+      ];
+    };
+
+
   };
 
   home.file = {
