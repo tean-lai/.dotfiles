@@ -78,11 +78,6 @@
   programs.steam.enable = true;
   programs.zsh.enable = true;
   programs.fish.enable = true;
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    # add missing dynamic libraries for unpackaged programs
-    # not included in environment.systemPackages
-  ];
 
   services.xserver = {
     videoDrivers = [ "nvidia" ];
@@ -150,6 +145,8 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  hardware.bluetooth.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
