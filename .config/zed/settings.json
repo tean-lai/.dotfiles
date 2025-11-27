@@ -7,6 +7,19 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent": {
+    "default_profile": "write",
+    "default_model": {
+      "provider": "ollama",
+      "model": "llama3.2:latest"
+    },
+    "model_parameters": []
+  },
+  "disable_ai": true,
+  "calls": {
+    "mute_on_join": true
+  },
+  "soft_wrap": "preferred_line_length",
   "title_bar": {
     "show_sign_in": false
   },
@@ -21,9 +34,7 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "~/c2s2/core"
-          ]
+          "paths": ["~/c2s2/core"]
         }
       ]
     },
@@ -33,14 +44,10 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "/home/tml95/ece6775/./"
-          ]
+          "paths": ["/home/tml95/ece6775"]
         },
         {
-          "paths": [
-            "/home/tml95/ece6775/market-feed-handler-on-fpga/./"
-          ]
+          "paths": ["/home/tml95/ece6775/market-feed-handler-on-fpga"]
         }
       ]
     }
@@ -51,7 +58,7 @@
   "buffer_font_size": 15,
   "theme": {
     "mode": "system",
-    "light": "Gruvbox Light",
+    "light": "Rosé Pine Dawn",
     "dark": "Gruvbox Dark"
   },
 
@@ -64,12 +71,32 @@
       "tab_size": 2
     },
     "C++": {
-      "format_on_save": "off",
+      "format_on_save": "on",
       "tab_size": 2
     },
     "SystemVerilog": {
       "language_servers": ["verible"],
       "tab_size": 2
+    },
+    "HTML": {
+      "tab_size": 2
+    },
+    "Nunjucks": {
+      "format_on_save": "on",
+      "tab_size": 4,
+      "hard_tabs": false
+    },
+    "LaTeX": {
+      "tab_size": 2
+    }
+  },
+
+  "terminal": {
+    "detect_venv": {
+      "on": {
+        "directories": [".venv", "venv"],
+        "activate_script": "default"
+      }
     }
   },
 
@@ -86,12 +113,33 @@
           // "pythonPath": "/opt/miniconda3/envs/cs4789/bin/python3"
         }
       }
+    },
+    "jdtls": {
+      "settings.java_home": "/opt/homebrew/opt/openjdk@17/bin"
+      //   "initialization_options": {}
+    },
+    "texlab": {
+      "settings": {
+        "texlab": {
+          // ...
+          "build": {
+            "onSave": true,
+            "forwardSearchAfter": true
+          },
+          "forwardSearch": {
+            "executable": "skim",
+            "args": [
+              "--synctex-forward",
+              "%l:1:%f",
+              "-x",
+              "zed %%{input}:%%{line}",
+              "%p"
+            ]
+          }
+        }
+      }
     }
-    // "jdtls": {
-    //   "initialization_options": {}
-    // }
   },
 
-  "vim_mode": true,
-  "relative_line_numbers": true
+  "vim_mode": true
 }
