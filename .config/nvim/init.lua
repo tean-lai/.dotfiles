@@ -17,7 +17,11 @@ rtp:prepend(lazypath)
 
 require('lazy').setup("plugins")
 
+-- theme and transparency
 vim.cmd.colorscheme("kanagawa-paper")
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 
 
 -- local on_attach = function(_, bufnr)
