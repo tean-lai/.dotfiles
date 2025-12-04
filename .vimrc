@@ -1,27 +1,50 @@
+" Reminder that if you don't know what something is, you can always do search, for example:
+"   :help nocompatible
+"
+" On maintenace:
+" - :PlugUpdate and :PlugClean for plugins
+
 let mapleader = " "
 
-" ========== PLUGINS START ==========
+" FILE FOLDING SCRIPT {{{
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+
+
+" ========== PLUGINS START ========== {{{
+" Install plugin-manager and plugins if not there
 let data_dir = "~/.vim"
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $HOME/.vimrc
 endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
 
 call plug#begin()
   Plug 'prabirshrestha/vim-lsp'
+  " Plug 'dense-analysis/ale'  " async lint?
+  Plug 'preservim/nerdtree'
 call plug#end()
-" ========== PLUGINS END ===========
+" ========== PLUGINS END =========== }}}
+
+" == BASICS {{{
+set expandtab smarttab shiftwidth=2 tabstop=2 softtabstop=2
+set autoindent smartindent
 
 set history=500
 
 " set nocompatible  " TODO: what is this??
 set number relativenumber
 
-map <leader>y "+y
-map <leader>yy "+yy
-map <leader>p "+p
 
-set so=7  " i think this is a vertical buffer for scrolling
+
+set scrolloff=7
 set cmdheight=1  " height of command bar
 set hid  " buffer becomes hidden when it is abandoned
 
@@ -37,19 +60,18 @@ set magic  " for regular expressions turn magic on
 set showmatch  " show matching brackets when text indiciators is over them
 set mat=2  " how many tenths of a second to blink
 
-set noerrorbells
-set novisualbell
+set noerrorbells novisualbell
 " set t_vb  TODO
 set tm=500  " TODO:??
 
 set nobackup nowb noswapfile
+set undodir=~/.vim/undo_dir undofile
 
-set expandtab smarttab shiftwidth=2 tabstop=2
+" set wildmenu wildmode=list:longest  something about file completion
+" set wildignore=*.docx,*.jpg,*.png,*.gif,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 set lbr
 
-set ai
-set si
 set wrap
 
 map <silent> <leader> q :noh<cr>  " disable highlight when <leader><cr> is pressed
@@ -66,7 +88,9 @@ endif
 
 set clipboard=unnamedplus
 
-" ========== LSP Configuration ===========
+" }}}
+
+" ========== LSP Configuration =========== {{{
 " if executable('pylsp')
 "   " pip install python-lsp-server
 "   au User lsp_setup call lsp#register_server({
@@ -101,6 +125,14 @@ set clipboard=unnamedplus
 "   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 " augroup END
 
+" }}}
 
+" MAPPINGS {{{
+map <leader>y "+y
+map <leader>yy "+yy
+map <leader>p "+p
+" nnoremap <leader>
+map <leader>b :NERDTreeToggle<cr>
 
+" }}}
 
