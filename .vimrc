@@ -30,10 +30,11 @@ call plug#begin()
   Plug 'prabirshrestha/vim-lsp'
   " Plug 'dense-analysis/ale'  " async lint?
   Plug 'preservim/nerdtree'
+  Plug 'sbdchd/neoformat'
 call plug#end()
 " ========== PLUGINS END =========== }}}
 
-" == BASICS {{{
+" BASICS {{{
 set expandtab smarttab shiftwidth=2 tabstop=2 softtabstop=2
 set autoindent smartindent
 
@@ -133,6 +134,64 @@ map <leader>yy "+yy
 map <leader>p "+p
 " nnoremap <leader>
 map <leader>b :NERDTreeToggle<cr>
+map <leader>fmt :Neoformat<cr>
 
 " }}}
 
+" OPAM settings {{{
+" ## added by OPAM user-setup for vim / base ## d611dd144a5764d46fdea4c0c2e0ba07 ## you can edit, but keep this line
+let s:opam_share_dir = system("opam var share")
+let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+
+let s:opam_configuration = {}
+
+function! OpamConfOcpIndent()
+  execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+endfunction
+let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+
+function! OpamConfOcpIndex()
+  execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
+endfunction
+let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
+
+function! OpamConfMerlin()
+  let l:dir = s:opam_share_dir . "/merlin/vim"
+  execute "set rtp+=" . l:dir
+endfunction
+let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+
+let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
+let s:opam_available_tools = []
+for tool in s:opam_packages
+  " Respect package order (merlin should be after ocp-index)
+  if isdirectory(s:opam_share_dir . "/" . tool)
+    call add(s:opam_available_tools, tool)
+    call s:opam_configuration[tool]()
+  endif
+endfor
+" ## end of OPAM user-setup addition for vim / base ## keep this line
+" ## added by OPAM user-setup for vim / ocp-indent ## 80e30fc874a232f29b78572d2409e293 ## you can edit, but keep this line
+if count(s:opam_available_tools,"ocp-indent") == 0
+  source "/Users/tean/.opam/default/share/ocp-indent/vim/indent/ocaml.vim"
+endif
+" ## end of OPAM user-setup addition for vim / ocp-indent ## keep this line
+" }}}
+
+" formatter {{{
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
+" let g:opambin = substitute(system('opam config var bin'),'\n$','','''')
+" let g:neoformat_ocaml_ocamlformat = {
+"             \ 'exe': g:opambin . '/ocamlformat',
+"             \ 'no_append': 1,
+"             \ 'stdin': 1,
+"             \ 'args': ['--disable-outside-detected-project', '--name', '"%:p"', '-']
+"             \ }
+" 
+" let g:neoformat_enabled_ocaml = ['ocamlformat']
+
+" }}}
