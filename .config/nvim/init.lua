@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 require("set")
 require("remap")
-require("lsp")
 
 -- LAZY PLUGIN MANAGER
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -17,6 +16,7 @@ local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 require('lazy').setup("plugins")
+require("lsp")
 
 -- theme and transparency
 -- Re-applied on every colorscheme change, otherwise :colorscheme wipes the transparency.
