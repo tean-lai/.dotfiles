@@ -1,4 +1,7 @@
 vim.g.mapleader = " "
+-- Nvim-tree handles directory buffers instead of netrw.
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 require("set")
 require("remap")
 

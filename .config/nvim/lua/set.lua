@@ -30,5 +30,9 @@ vim.opt.termguicolors = true
 
 vim.opt.showmode = false
 
+-- Click tabs and splits, and drag split borders to resize.
+vim.opt.mouse = "a"
+vim.opt.showtabline = 2
+
 -- No automatic comment insertion
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])
