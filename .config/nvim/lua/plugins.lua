@@ -26,6 +26,13 @@ return {
         indent = { enable = true },
       })
 
+      -- On 0.12 the frozen plugin's Markdown injection directive uses a removed
+      -- single-node API. Native queries keep fenced code in LSP hovers working.
+      if vim.fn.has("nvim-0.12") == 1 then
+        local query = vim.fn.readfile(vim.env.VIMRUNTIME .. "/queries/markdown/injections.scm")
+        vim.treesitter.query.set("markdown", "injections", table.concat(query, "\n"))
+      end
+
       -- .mli signature files are filetype "ocaml" but need the ocaml_interface
       -- grammar; the impl grammar parses them with errors. Keep the filetype so
       -- ocamllsp and the ocaml ftplugin still apply, swap only the parser.
@@ -68,6 +75,15 @@ return {
       _G.DotfilesToggleFiles = function()
         require("nvim-tree.api").tree.toggle()
       end
+      _G.DotfilesFindFiles = function()
+        require("search").files()
+      end
+      _G.DotfilesSearchText = function()
+        require("search").text()
+      end
+      _G.DotfilesDiagnostics = function()
+        require("telescope.builtin").diagnostics()
+      end
       require("bufferline").setup({
         options = {
           mode = "buffers",
@@ -82,7 +98,12 @@ return {
           right_mouse_command = "vertical sbuffer %d",
           custom_areas = {
             left = function()
-              return { { text = "%@v:lua.DotfilesToggleFiles@ Files %X" } }
+              return {
+                { text = "%@v:lua.DotfilesToggleFiles@ Files %X" },
+                { text = "%@v:lua.DotfilesFindFiles@ Find %X" },
+                { text = "%@v:lua.DotfilesSearchText@ Search %X" },
+                { text = "%@v:lua.DotfilesDiagnostics@ Diagnostics %X" },
+              }
             end,
           },
         },
@@ -108,6 +129,19 @@ return {
           glyphs = { folder = { arrow_closed = ">", arrow_open = "v" } },
         },
       },
+    },
+  },
+
+  { "lewis6991/gitsigns.nvim", opts = {} },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    keys = {
+      { "<leader>ff", function() require("search").files() end, desc = "Find project file" },
+      { "<leader>fg", function() require("search").text() end, desc = "Search project text" },
+    },
+    opts = {
+      defaults = { path_display = { "truncate" } },
     },
   },
 

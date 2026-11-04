@@ -32,7 +32,9 @@ vim.opt.showmode = false
 
 -- Click tabs and splits, and drag split borders to resize.
 vim.opt.mouse = "a"
+vim.opt.mousemodel = "popup_setpos"
 vim.opt.showtabline = 2
+vim.opt.updatetime = 500 -- Diagnostic popup after half a second of inactivity.
 
 -- No automatic comment insertion
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])

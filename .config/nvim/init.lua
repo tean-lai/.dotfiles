@@ -20,6 +20,7 @@ rtp:prepend(lazypath)
 
 require('lazy').setup("plugins")
 require("lsp")
+require("menu")
 
 -- theme and transparency
 -- Re-applied on every colorscheme change, otherwise :colorscheme wipes the transparency.
